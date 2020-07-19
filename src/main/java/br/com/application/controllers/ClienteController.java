@@ -59,4 +59,11 @@ public class ClienteController {
 		repository.save(cliente);
 	}
 
+	@Consumes(MediaType.APPLICATION_JSON)
+	@RequestMapping(value = "/cliente/delete/", method = RequestMethod.DELETE)
+	public void remove(@RequestParam("id") Long id) {
+		repository.deleteById(id);
+
+	}
+
 }
