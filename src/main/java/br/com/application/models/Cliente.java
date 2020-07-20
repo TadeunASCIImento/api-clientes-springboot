@@ -19,11 +19,11 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Getter
-@Setter
 @EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter
+@Setter
 @Entity
 public class Cliente implements Serializable {
 	private static final long serialVersionUID = 5135465126329174969L;
@@ -31,15 +31,18 @@ public class Cliente implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	
 
 	private String nome;
-
 	@Column(unique = true)
+	
+	
 	private String cpf;
+	
 
 	@javax.persistence.Temporal(TemporalType.DATE)
 	private Date dataNascimento;
-
+	
 	@Nullable
 	@Transient
 	private Integer idade;
