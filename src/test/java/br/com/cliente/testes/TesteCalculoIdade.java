@@ -1,5 +1,7 @@
 package br.com.cliente.testes;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -22,6 +24,6 @@ class TesteCalculoIdade {
 		if (today.before(birth)) {
 			age--;
 		}
-		org.junit.Assert.assertEquals(age, 38);
+		assertEquals(age, 37);
 	}
 }
