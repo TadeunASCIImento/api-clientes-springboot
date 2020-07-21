@@ -15,26 +15,26 @@ import br.com.application.repositories.ClientesRepository;
 import br.com.application.util.Util;
 
 @RestController
-@RequestMapping("/clientes")
+@RequestMapping("/api")
 public class ClienteController {
 
 	@Autowired
 	private ClientesRepository repository;
 
 	/*
-	 * Retorna os clientes de forma páginada.
+	 * Cria um novo cliente no banco.
 	 */
 
-	@RequestMapping(value = "/paginas/",method = RequestMethod.GET)
-	public ResponseEntity<?> findAll(Pageable pageable) {
-		return new ResponseEntity<>(repository.findAll(pageable), HttpStatus.OK);
+	@RequestMapping(value = "/clientes/novo/", method = RequestMethod.POST)
+	public void addCliente(@RequestBody Cliente cliente) {
+		repository.save(cliente);
 	}
 
 	/*
 	 * Retorna cliente pelo CPF passado como parâmetro em cpf.
 	 */
 
-	@RequestMapping(value = "/cliente/cpf/", method = RequestMethod.GET)
+	@RequestMapping(value = "/clientes/cpf/", method = RequestMethod.GET)
 	public ResponseEntity<?> findByCpf(@RequestParam("cpf") String cpf) {
 		Cliente cliente = repository.findByCpf(cpf);
 		cliente.setIdade(new Util().getIdade(cliente.getDataNascimento()));
@@ -45,7 +45,7 @@ public class ClienteController {
 	 * Retorna cliente pelo nome passado como parâmetro em nome.
 	 */
 
-	@RequestMapping(value = "/cliente/nome/", method = RequestMethod.GET)
+	@RequestMapping(value = "/clientes/nome/", method = RequestMethod.GET)
 	public ResponseEntity<?> findByNome(@RequestParam("nome") String nome) {
 		Cliente cliente = repository.findByNome(nome);
 		cliente.setIdade(new Util().getIdade(cliente.getDataNascimento()));
@@ -53,22 +53,44 @@ public class ClienteController {
 	}
 
 	/*
-	 * Cria um novo cliente no banco.
+	 * Atualiza cliente, cria novo cliente caso não exista.
 	 */
 
-	@RequestMapping(value = "/cliente/novo/", method = RequestMethod.POST)
-	public void add(@RequestBody Cliente cliente) {
+	@RequestMapping(value = "/clientes/create/", method = RequestMethod.PUT)
+	public void create(@RequestBody Cliente cliente) {
 		repository.save(cliente);
+	}
+
+	/*
+	 * Atualiza cliente, já existente.
+	 */
+
+	@RequestMapping(value = "/clientes/update/", method = RequestMethod.PATCH)
+	public void update(@RequestBody Cliente cliente) {
+		repository.save(cliente);
+	}
+
+	/*
+	 * Retorna os clientes de forma páginada.
+	 */
+
+	@RequestMapping(value = "/clientes/pagina/", method = RequestMethod.GET)
+	public ResponseEntity<?> findAll(Pageable pageable) {
+		for (Object object : repository.findAll(pageable)) {
+			if (object instanceof Cliente) {
+				((Cliente) object).setIdade(new Util().getIdade(((Cliente) object).getDataNascimento()));
+			}
+		}
+		return new ResponseEntity<>(repository.findAll(pageable), HttpStatus.OK);
 	}
 
 	/*
 	 * Deleta cliente passando o id como parâmetro
 	 */
 
-	@RequestMapping(value = "/cliente/delete/", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/clientes/delete/", method = RequestMethod.DELETE)
 	public void remove(@RequestParam("id") Long id) {
 		repository.deleteById(id);
-
 	}
 
 }

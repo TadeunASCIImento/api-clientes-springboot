@@ -15,7 +15,7 @@ class TesteCalculoIdade {
 	@Test
 	void deveRetornarAidadeApartirDaDataDeNascimento() {
 		
-		Date date = new Util().toDate("1982-09-27");
+		Date date = new Util().toDate("1979-09-27");
 		Calendar birth = new GregorianCalendar();
 		birth.setTime(date);
 		Calendar today = Calendar.getInstance();
@@ -24,6 +24,6 @@ class TesteCalculoIdade {
 		if (today.before(birth)) {
 			age--;
 		}
-		assertEquals(age, 37);
+		assertEquals(age, 40);
 	}
 }
