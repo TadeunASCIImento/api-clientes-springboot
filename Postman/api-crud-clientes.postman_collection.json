@@ -1,0 +1,245 @@
+{
+	"info": {
+		"_postman_id": "e16a5c8f-f6c1-4d4e-9ff0-a5444ac69ba4",
+		"name": "api-crud-clientes",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "buscarpornomecompleto",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"St\",\r\n    \"cpf\": \"32471527841\",\r\n    \"dataNascimento\": \"1982-09-27\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/clientes/nome/?nome=Tadeu do Nascimento",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"clientes",
+						"nome",
+						""
+					],
+					"query": [
+						{
+							"key": "nome",
+							"value": "Tadeu do Nascimento"
+						}
+					]
+				},
+				"description": "Busca pelo nome passado na query string."
+			},
+			"response": []
+		},
+		{
+			"name": "buscapordocumentodecpf",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/clientes/cpf/?cpf=111222333444",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"clientes",
+						"cpf",
+						""
+					],
+					"query": [
+						{
+							"key": "cpf",
+							"value": "111222333444"
+						}
+					]
+				},
+				"description": "Retorna cliente pelo núemro de CPF passado na query string."
+			},
+			"response": []
+		},
+		{
+			"name": "criarnovorecursocliente",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "nome",
+							"value": "Tadeu do Nascimento",
+							"type": "text"
+						},
+						{
+							"key": "cpf",
+							"value": "111222333444",
+							"type": "text"
+						},
+						{
+							"key": "dataNascimento",
+							"value": "1982/09/27",
+							"type": "text"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/clientes/novo/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"clientes",
+						"novo",
+						""
+					]
+				},
+				"description": "Cria um novo cliente passando as informações nome, cpf e data de nascimento."
+			},
+			"response": []
+		},
+		{
+			"name": "busca clientes por paginação",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/clientes/pagina/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"clientes",
+						"pagina",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleta cliente pelo id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/clientes/delete/?id=5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"clientes",
+						"delete",
+						""
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/clientes/atualizar/",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 5,\r\n    \"nome\": \"Tadeu do Nascimento\",\r\n    \"cpf\": \"111222333444\",\r\n    \"dataNascimento\": \"1982-09-27\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/clientes/update/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"clientes",
+						"update",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/clientes/create/",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 5,\r\n    \"nome\": \"Tadeu do Nascimento\",\r\n    \"cpf\": \"11122233355\",\r\n    \"dataNascimento\": \"1982-09-27\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/clientes/create/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"clientes",
+						"create",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

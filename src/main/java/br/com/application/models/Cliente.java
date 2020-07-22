@@ -37,7 +37,7 @@ public class Cliente implements Serializable {
 	@Column(unique = true)
 	private String cpf;
 
-	@javax.persistence.Temporal(TemporalType.DATE)
+	@javax.persistence.Temporal(TemporalType.TIMESTAMP)
 	private Date dataNascimento;
 
 	@Nullable

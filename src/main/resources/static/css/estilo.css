@@ -1,0 +1,66 @@
+@charset "ISO-8859-1";
+
+* {
+	font-family: monospace;
+}
+
+#in-nome, #in-sobrenome {
+	font-size: 1.8em;
+	width: 400px;
+	height: 45px;
+	width: 400px;
+}
+
+#in-cpf, #in-datanascimento {
+	font-size: 1.8em;
+	width: 280px;
+	height: 45px;
+}
+
+button {
+	font-size: 1.5em;
+	width: 280px;
+	height: 45px;
+}
+
+#img-icon {
+	border-radius: 5px;
+	text-align: center;
+}
+
+.table {
+	font-size: 1.5em;
+	text-align: center;
+	background-color: #2f3e46;
+}
+
+.jumbotron {
+	background-color: #2f3e46;
+}
+
+h4, h3, label, .label-formato-data {
+	color: white;
+}
+
+.label-formato-data {
+	font-size: 1.4em;
+	color:#8d99ae;
+}
+
+label {
+	font-size: 1.8em;
+}
+
+hr {
+	margin-top: 10px;
+	background-color: white;
+}
+
+form {
+	margin-bottom: 60px;
+}
+
+h3 {
+	text-align: center;
+	margin: 40px 0px 0px 0px;
+}
