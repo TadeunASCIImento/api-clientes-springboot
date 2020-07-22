@@ -21,12 +21,12 @@
 					th:action="@{/clientes/novo/}">
 					<div class="form-group">
 						<label id="label-nome">Nome</label> <input id="in-nome"
-							type="text" class="form-control" th:field="*{nome}"/> <label
+							type="text" class="form-control" th:field="*{nome}" /> <label
 							id="label-cpf">CPF</label> <input id="in-cpf" type="text"
 							class="form-control" th:field="*{cpf}" /> <label
-							id="label-data-nascimento">Data de Nascimento </label>
-						<input id="in-datanascimento" th:type="datetime"
-							class="form-control" th:field="*{dataNascimento}" />
+							id="label-data-nascimento">Data de Nascimento </label> <input
+							id="in-datanascimento" th:type="datetime" class="form-control"
+							th:field="*{dataNascimento}" />
 						<p class="label-formato-data">Ex: 2020/05/31</p>
 					</div>
 					<button type="submit" class="btn btn-secondary">CADASTRAR</button>
