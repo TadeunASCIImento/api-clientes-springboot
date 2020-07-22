@@ -55,7 +55,7 @@
 							<td th:text="${cliente.idade}"></td>
 							<td><a href="#"><img id="icone-update"
 									src="/icons/update.png" /></a></td>
-							<td><a th:href="@{/clientes/delete/(id=${cliente.id})}"><img
+							<td><a th:href="@{/clientes/delete/{id}(id=${cliente.id})}"><img
 									id="icone-trash" src="/icons/trash.png" /></a></td>
 						</tr>
 					</tbody>
