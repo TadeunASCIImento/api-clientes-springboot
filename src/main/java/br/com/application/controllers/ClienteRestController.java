@@ -25,15 +25,37 @@ public class ClienteRestController {
 	@Autowired
 	private ClientesRepository repository;
 
-	@RequestMapping(value = "/formulario", method = RequestMethod.GET)
+	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView formulario(Cliente cliente) {
 		ModelAndView modelAndView = new ModelAndView("formulario");
-		modelAndView.addObject("clientes", repository.findAll());
+		modelAndView.addObject("clientes", findAll());
 		return modelAndView;
 	}
 
+	@RequestMapping(value = "/listar/", method = RequestMethod.GET)
+	public List<Cliente> findAll() {
+		List<Cliente> clientes = new ArrayList<Cliente>();
+		for (Cliente cliente : repository.findAll()) {
+			cliente.setIdade(new Util().getIdade(cliente.getDataNascimento()));
+			clientes.add(cliente);
+		}
+		return clientes;
+	}
+
+	@RequestMapping(value = "/cadastrar", method = RequestMethod.POST)
+	public ModelAndView save(Cliente cliente) {
+		add(cliente);
+		return new ModelAndView("redirect:/clientes/");
+	}
+
+	@RequestMapping(value = "/excluir/{id}", method = RequestMethod.GET)
+	public ModelAndView delete(@PathVariable(value = "id") Long id) {
+		remove(id);
+		return new ModelAndView("redirect:/clientes/");
+	}
+	
 	/*
-	 * Cria um novo cliente no banco.
+	 * Cria um novo cliente no banco(POST).
 	 */
 
 	@RequestMapping(value = "/novo/", method = RequestMethod.POST)
@@ -46,7 +68,7 @@ public class ClienteRestController {
 	}
 
 	/*
-	 * Retorna cliente pelo CPF passado como parâmetro em cpf.
+	 * Retorna cliente pelo CPF passado como parâmetro em cpf.(GET)
 	 */
 
 	@RequestMapping(value = "/cpf/{cpf}", method = RequestMethod.GET)
@@ -57,7 +79,7 @@ public class ClienteRestController {
 	}
 
 	/*
-	 * Retorna cliente pelo nome passado como parâmetro em nome.
+	 * Retorna cliente pelo nome passado como parâmetro em nome.(GET)
 	 */
 
 	@RequestMapping(value = "/nome/{nome}", method = RequestMethod.GET)
@@ -68,7 +90,7 @@ public class ClienteRestController {
 	}
 
 	/*
-	 * Atualiza cliente, cria novo cliente caso não exista.
+	 * Atualiza cliente, cria novo cliente caso não exista(PUT).
 	 */
 
 	@RequestMapping(value = "/create/", method = RequestMethod.PUT)
@@ -77,7 +99,7 @@ public class ClienteRestController {
 	}
 
 	/*
-	 * Atualiza cliente, já existente.
+	 * Atualiza cliente, já existente.(PATCH)
 	 */
 
 	@RequestMapping(value = "/update/", method = RequestMethod.PATCH)
@@ -86,7 +108,7 @@ public class ClienteRestController {
 	}
 
 	/*
-	 * Retorna os clientes de forma páginada.
+	 * Retorna os clientes de forma páginada.(PAGINAÇÃO)
 	 */
 
 	@RequestMapping(value = "/pagina/", method = RequestMethod.GET)
@@ -100,23 +122,13 @@ public class ClienteRestController {
 	}
 
 	/*
-	 * Deleta cliente passando o id como parâmetro
+	 * Deleta cliente passando o id como parâmetro (DELETE)
 	 */
 
-	@RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
-	public ResponseEntity<Cliente> remove(@PathVariable(value = "id") Long id) {
+	@RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
+	public ResponseEntity<?> remove(@PathVariable(value = "id") Long id) {
 		repository.deleteById(id);
-		return new ResponseEntity<Cliente>(HttpStatus.OK);
-	}
-
-	@RequestMapping(value = "/clientes/", method = RequestMethod.GET)
-	public List<Cliente> findAll() {
-		List<Cliente> clientes = new ArrayList<Cliente>();
-		for (Cliente cliente : repository.findAll()) {
-			cliente.setIdade(new Util().getIdade(cliente.getDataNascimento()));
-			clientes.add(cliente);
-		}
-		return clientes;
+		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
 }

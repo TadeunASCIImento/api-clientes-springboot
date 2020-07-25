@@ -4,66 +4,57 @@
 <head>
 <meta charset="UTF-8">
 <meta name='viewport' content='width=device-width, initial-scale=1'>
-<title>Cadastro de Clientes</title>
+<title>cadastro de clientes spring boot</title>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="/css/estilo.css">
 </head>
 <body>
 	<div class="container">
-		<div class="jumbotron">
-			<div class="panel-heading">
-				<h3 class="title">Cadastro de clientes</h3>
+		<h1 class="titulo">CADASTRO DE CLIENTES</h1>
+		<hr class="divisor">
+
+		<form method="POST" th:object="${cliente}"
+			th:action="@{/clientes/cadastrar/}">
+			<div class="form-group">
+				<label class="nome">NOME</label> <input id="nome"
+					type="text" class="form-control" th:field="*{nome}" /> <label
+					class="cpf">CPF</label><input id="cpf" type="text"
+					class="form-control" th:field="*{cpf}" /> <label
+					class="data">DATA NASCIMENTO</label><input
+					id="data" th:type="datetime" class="form-control"
+					th:field="*{dataNascimento}" />
+			<p class="label-data">Ex: 2020/05/31</p>
 			</div>
-			<hr>
-			<div class="panel panel-default" style="margin: 10px;">
-				<form method="POST" th:object="${cliente}"
-					th:action="@{/clientes/novo/}">
-					<div class="form-group">
-						<label id="label-nome">Nome</label> <input id="in-nome"
-							type="text" class="form-control" th:field="*{nome}" /> <label
-							id="label-cpf">CPF</label> <input id="in-cpf" type="text"
-							class="form-control" th:field="*{cpf}" /> <label
-							id="label-data-nascimento">Data de Nascimento </label> <input
-							id="in-datanascimento" th:type="datetime" class="form-control"
-							th:field="*{dataNascimento}" />
-						<p class="label-formato-data">Ex: 2020/05/31</p>
-					</div>
-					<button type="submit" class="btn btn-secondary">CADASTRAR</button>
-				</form>
-				<div class="panel-heading">
-					<h3 class="title">Lista de clientes cadastrados</h3>
-				</div>
-			</div>
-			<div class="panel-body">
-				<table class="table table-dark">
-					<thead>
-						<tr>
-							<th>NUMERO DO CLIENTE</th>
-							<th>CPF</th>
-							<th>NOME</th>
-							<th>IDADE</th>
-							<th>ALTERAR</th>
-							<th>EXCLUÍR</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr th:each="cliente:${clientes}">
-							<td th:text="${cliente.id}"></td>
-							<td th:text="${cliente.cpf}"></td>
-							<td th:text="${cliente.nome}"></td>
-							<td th:text="${cliente.idade}"></td>
-							<td><a href="#"><img id="icone-update"
-									src="/icons/update.png" /></a></td>
-							<td><a th:href="@{/clientes/delete/{id}(id=${cliente.id})}"><img
-									id="icone-trash" src="/icons/trash.png" /></a></td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
-			<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
-		</div>
+				<button id="botao-cadastrar"type="submit"class="btn btn-secondary">CADASTRAR</button>
+		</form>
+		<h3 class="title">Lista de clientes cadastrados</h3>
+		<table class="table table-dark">
+			<thead>
+				<tr>
+					<th>NUMERO DO CLIENTE</th>
+					<th>CPF</th>
+					<th>NOME</th>
+					<th>IDADE</th>
+					<th>ALTERAR</th>
+					<th>EXCLUÍR</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="cliente:${clientes}">
+					<td th:text="${cliente.id}"></td>
+					<td th:text="${cliente.cpf}"></td>
+					<td th:text="${cliente.nome}"></td>
+					<td th:text="${cliente.idade}"></td>
+					<td><a th:href="@{/clientes/cpf/{cpf}(cpf=${cliente.cpf})}"><img
+							class="icone-operacao" src="/icons/update.png" /></a></td>
+					<td><a th:href="@{/clientes/excluir/{id}(id=${cliente.id})}"><img
+							class="icone-operacao" src="/icons/trash.png" /></a></td>
+				</tr>
+			</tbody>
+		</table>
+		<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+		<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 	</div>
 </body>
 </html>
