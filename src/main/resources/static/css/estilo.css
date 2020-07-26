@@ -4,55 +4,88 @@
 	font-family: monospace;
 }
 
-.container {
-	background-color: #212529;
+header {
+	padding: 20px;
 }
 
 .table {
-	background-color: #212529;
-	font-size: 1.2em;
+	font-size: 1.1em;
 	text-align: center;
 }
 
 .titulo {
-	color: whitesmoke;
 	text-align: center;
-	padding: 30px;
 }
 
 .divisor {
-	background-color: whitesmoke;
+	margin: 20px 0px 0px 0px;
 }
 
 .form-group {
 	margin: 10px 0px 10px 10px;
 }
 
-.nome, .cpf, .data, .label-data {
-	font-size: 1.2em;
-	color: whitesmoke;
-	margin: 5px 0px 0px 0px;
+.label-nome, .label-cpf, .label-data {
+	font-size: 1.1em;
+	margin: 5px 10px 0px 0px;
 }
 
-.label-data {
+.label-formato-data, .label-formato-cpf {
 	color: grey;
-	margin:3px 0px 0px 0px;
+	margin: 3px 0px 0px 0px;
 }
 
-#nome, #cpf, #data {
-	font-size: 1.2em;
+#input-nome, #input-cpf, #input-data {
+	font-size: 1.1em;
 	width: 300px;
-	margin: 0px 0px 0px 0px;
+	margin: 0px 20px 0px 0px;
 }
 
 #botao-cadastrar {
-	width: 200px;
-	height: 40px;
-	margin: 0px 0px 0px 110px;
+	background-color: #028090;
+	width: 155px;
+	margin: 0px 0px 0px 145px;
+	border: none;
 }
 
-.icone-operacao {
+#icone-operacao {
 	width: 40px;
 	height: 40px;
 	border: none;
+}
+
+#form-busca {
+	margin: 0px 0px 10px 310px;
+}
+
+#input-nome-busca {
+	width: 300px;
+	margin: 0px 10px 0px 10px;
+}
+
+#input-cpf-busca {
+	width: 200px;
+	margin: 0px 10px 0px 10px;
+}
+
+#botao-localizar {
+	background-color: #f95738;
+	width: 120px;
+	height: 38px;
+	margin: 0px 0px 0px 0px;
+	border: none;
+}
+
+#titulo-busca {
+	font-style:italic;
+	color:grey;
+	margin: 0px 0px 5px 345px;
+}
+
+#container-cliente {
+	margin-top: 100px;
+}
+
+#tabela-cliente {
+	margin-top: 100px;
 }

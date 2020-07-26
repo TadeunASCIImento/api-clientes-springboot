@@ -11,15 +11,9 @@ import br.com.application.models.Cliente;
 public interface ClientesRepository extends PagingAndSortingRepository<Cliente, Long> {
 
 	/*
-	 * Retorna o cliente bucando pelo cpf informado.
+	 * Busca o cliente pelo CPF ou nome completo.
 	 */
-	@Query("select c from Cliente c where c.cpf = :cpf")
-	public Cliente findByCpf(@RequestParam("cpf") String cpf);
+	@Query("SELECT c FROM Cliente c WHERE c.cpf = :cpf OR c.nome = :nome")
+	public Cliente findOne(@RequestParam("cpf") String cpf, @RequestParam("nome") String nome);
 
-	/*
-	 * Retorna o cliente bucando pelo nome completo informado.
-	 */
-
-	@Query("select c from Cliente c where c.nome = :nome")
-	public Cliente findByNome(@RequestParam("nome") String nome);
 }

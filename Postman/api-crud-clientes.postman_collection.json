@@ -6,7 +6,7 @@
 	},
 	"item": [
 		{
-			"name": "buscarpornomecompleto",
+			"name": "Retorna recurso pelo nome completo.",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -14,8 +14,14 @@
 				"method": "GET",
 				"header": [],
 				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"nome\": \"St\",\r\n    \"cpf\": \"32471527841\",\r\n    \"dataNascimento\": \"1982-09-27\"\r\n}",
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "",
+							"value": "vpf",
+							"type": "text"
+						}
+					],
 					"options": {
 						"raw": {
 							"language": "json"
@@ -23,7 +29,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/clientes/nome/?nome=Tadeu do Nascimento",
+					"raw": "http://localhost:8080/clientes/cliente/?cpf=111222333444&nome=Tadeu do Nascimento",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -31,10 +37,14 @@
 					"port": "8080",
 					"path": [
 						"clientes",
-						"nome",
+						"cliente",
 						""
 					],
 					"query": [
+						{
+							"key": "cpf",
+							"value": "111222333444"
+						},
 						{
 							"key": "nome",
 							"value": "Tadeu do Nascimento"
@@ -46,7 +56,7 @@
 			"response": []
 		},
 		{
-			"name": "buscapordocumentodecpf",
+			"name": "Retorna o recurso pelo  CPF.",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -63,7 +73,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/clientes/cpf/?cpf=111222333444",
+					"raw": "http://localhost:8080/clientes/cliente/?nome=Tadeu do Nascimento",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -71,13 +81,18 @@
 					"port": "8080",
 					"path": [
 						"clientes",
-						"cpf",
+						"cliente",
 						""
 					],
 					"query": [
 						{
 							"key": "cpf",
-							"value": "111222333444"
+							"value": "111222333444",
+							"disabled": true
+						},
+						{
+							"key": "nome",
+							"value": "Tadeu do Nascimento"
 						}
 					]
 				},
@@ -86,7 +101,7 @@
 			"response": []
 		},
 		{
-			"name": "criarnovorecursocliente",
+			"name": "Cria um novo recurso usando o verbo POST.",
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -158,8 +173,17 @@
 			"request": {
 				"method": "DELETE",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "http://localhost:8080/clientes/delete/?id=1",
+					"raw": "http://localhost:8080/clientes/delete/2",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -168,26 +192,20 @@
 					"path": [
 						"clientes",
 						"delete",
-						""
-					],
-					"query": [
-						{
-							"key": "id",
-							"value": "1"
-						}
+						"2"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "http://localhost:8080/api/clientes/atualizar/",
+			"name": "Atualiza o recurso usando o verbo PATCH.",
 			"request": {
 				"method": "PATCH",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"id\": 5,\r\n    \"nome\": \"Tadeu do Nascimento\",\r\n    \"cpf\": \"111222333444\",\r\n    \"dataNascimento\": \"1982-09-27\"\r\n}",
+					"raw": "{\r\n    \"id\": 1,\r\n    \"nome\": \"Tadeu do Nascimento\",\r\n    \"cpf\": \"111222333555\",\r\n    \"dataNascimento\": \"1992-09-27\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -211,13 +229,13 @@
 			"response": []
 		},
 		{
-			"name": "http://localhost:8080/api/clientes/create/",
+			"name": "Atualiza o recurso usando o verbo PUT e cria um novo caso não exista.",
 			"request": {
 				"method": "PUT",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"id\": 5,\r\n    \"nome\": \"Tadeu do Nascimento\",\r\n    \"cpf\": \"11122233355\",\r\n    \"dataNascimento\": \"1982-09-27\"\r\n}",
+					"raw": "{\r\n    \"id\": 2,\r\n    \"nome\": \"Tadeu do Nascimento\",\r\n    \"cpf\": \"333444555666\",\r\n    \"dataNascimento\": \"1982-09-27\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"

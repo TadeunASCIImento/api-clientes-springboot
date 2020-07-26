@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<title>cadastro de clientes spring boot</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/estilo.css">
+</head>
+<body>
+	<div class="container">
+		<header class="header">
+			<h2 class="titulo">DADOS DE CADASTRO DO CLIENTE</h2>
+			<a th:href="@{/clientes/cadastro/}"><img id="icone-voltar"
+				src="/icons/voltar.png" /></a>
+		</header>
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th>NUMERO DO CLIENTE</th>
+					<th>CPF</th>
+					<th>NOME</th>
+					<th>IDADE</th>
+					<th>ALTERAR</th>
+					<th>EXCLUÍR</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td th:text="${cliente.id}"></td>
+					<td th:text="${cliente.cpf}"></td>
+					<td th:text="${cliente.nome}"></td>
+					<td th:text="${cliente.idade}"></td>
+					<td><a
+						th:href="@{/clientes/localizar/cpf=${cliente.cpf}nome=${cliente.nome}}"><img
+							id="icone-operacao" src="/icons/update.png" /></a></td>
+					<td><a th:href="@{/clientes/excluir/{id}(id=${cliente.id})}"><img
+							id="icone-operacao" src="/icons/trash.png" /></a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>
