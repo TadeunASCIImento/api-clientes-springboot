@@ -22,7 +22,21 @@
 		</header>
 		<a th:href="@{/clientes/todos/}"><img id="icone-voltar"
 			src="/icons/voltar.png" /></a>
-
+		<form method="POST" th:object="${cliente}"
+			th:action="@{/clientes/atualizar/}" class="form-update">
+			<div class="form-inline">
+				<input id="input-numero-cliente" th:type="hidden"
+					class="form-control" th:field="*{id}" th:value="${cliente.id}" /><input
+					id="input-update-cpf" th:type="text" class="form-control"
+					th:field="*{cpf}" th:value="${cliente.cpf}" /><input
+					id="input-update-nome" th:type="text" class="form-control"
+					th:field="*{nome}" th:value="${cliente.nome}" /> <input
+					id="input-update-data" th:type="datetime" class="form-control"
+					th:field="*{dataNascimento}" th:value="${cliente.dataNascimento}" />
+				<button id="botao-salvar" th:type="submit" class="btn btn-secondary">SALVAR
+					ALTERAÇÕES</button>
+			</div>
+		</form>
 		<table id="table-cliente" class="table table-hover">
 			<thead>
 				<tr>
@@ -35,12 +49,12 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr th:each="cliente:${clientes}">
+				<tr>
 					<td th:text="${cliente.id}"></td>
 					<td th:text="${cliente.cpf}"></td>
 					<td th:text="${cliente.nome}"></td>
 					<td th:text="${cliente.idade}"></td>
-					<td><a th:href="@{/clientes/editar/{id}(id=${cliente.id})}">
+						<td><a th:href="@{/clientes/editar/{id}(id=${cliente.id})}">
 							<img id="icone-operacao" src="/icons/update.png" />
 					</a></td>
 					<td><a th:href="@{/clientes/excluir/{id}(id=${cliente.id})}"><img

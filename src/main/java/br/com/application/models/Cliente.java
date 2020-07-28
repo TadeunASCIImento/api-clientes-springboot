@@ -1,14 +1,12 @@
 package br.com.application.models;
 
 import java.io.Serializable;
-import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 
 import org.springframework.lang.Nullable;
@@ -37,8 +35,7 @@ public class Cliente implements Serializable {
 	@Column(unique = true)
 	private String cpf;
 
-	@javax.persistence.Temporal(TemporalType.DATE)
-	private Date dataNascimento;
+	private String dataNascimento;
 
 	@Nullable
 	@Transient

@@ -7,15 +7,34 @@
 <title>cadastro de clientes spring boot</title>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="/css/estilo.css">
 </head>
 <body>
 	<div class="container">
 		<header class="header">
 			<h2 class="titulo">TABELA DE CLIENTES CADASTRADOS</h2>
+		</header>
 			<a th:href="@{/clientes/cadastro/}"><img id="icone-voltar"
 				src="/icons/voltar.png" /></a>
-		</header>
+		<form method="GET" th:action="@{/clientes/localizar/}">
+			<div id="form-busca" class="form-inline">
+		<label class="label-busca-cpf">INFORME O CPF</label>
+			 <input
+					id="input-cpf-busca" type="text" class="form-control" th:name="cpf" />
+				<label class="label-busca-nome"> OU NOME </label> <input
+					id="input-nome-busca" type="text" class="form-control"
+					th:name="nome" />
+				<button id="botao-localizar" th:type="submit"
+					class="btn btn-secondary">LOCALIZAR</button>
+			</div>
+		</form>
+
 		<table class="table table-hover">
 			<thead>
 				<tr>
@@ -24,7 +43,7 @@
 					<th>NOME</th>
 					<th>IDADE</th>
 					<th>ALTERAR</th>
-					<th>EXCLUÍR</th>
+					<th>EXCLUIR</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -33,12 +52,15 @@
 					<td th:text="${cliente.cpf}"></td>
 					<td th:text="${cliente.nome}"></td>
 					<td th:text="${cliente.idade}"></td>
-					<td><img id="icone-operacao" src="/icons/update.png" /></td>
+					<td><a th:href="@{/clientes/editar/{id}(id=${cliente.id})}">
+							<img id="icone-operacao" src="/icons/update.png" />
+					</a></td>
 					<td><a th:href="@{/clientes/excluir/{id}(id=${cliente.id})}"><img
 							id="icone-operacao" src="/icons/trash.png" /></a></td>
 				</tr>
 			</tbody>
 		</table>
+
 	</div>
 </body>
 </html>

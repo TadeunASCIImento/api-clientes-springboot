@@ -13,7 +13,6 @@
 	<div class="container">
 		<header class="header">
 			<h2 class="titulo">CADASTRO DE CLIENTES</h2>
-			<hr class="divisor">
 		</header>
 		<form class="form-cadastro" method="POST" th:object="${cliente}"
 			th:action="@{/clientes/cadastrar/}">
@@ -25,23 +24,14 @@
 					th:field="*{cpf}" />
 				<p class="label-formato-cpf">OBS:apenas numeros</p>
 				<label class="label-data">DATA DE NASCIMENTO</label><input
-					id="input-data" th:type="datetime" class="form-control"
+					id="input-data" th:type="date" class="form-control"
 					th:field="*{dataNascimento}" />
-				<p class="label-formato-data">Ex: 2020/05/31</p>
 				<button id="botao-cadastrar" th:type="submit"
 					class="btn btn-secondary">CADASTRAR</button>
-			</div>
-		</form>
-		<h6 id="titulo-busca">INFORME O NOME OU CPF PARA BUSCA</h6>
-		<form method="GET" th:action="@{/clientes/localizar/}">
-			<div id="form-busca" class="form-inline">
-				<label class="label-cpf-busca">CPF</label> <input
-					id="input-cpf-busca" type="text" class="form-control" th:name="cpf" />
-				<label class="label-nome-busca"> OU NOME </label> <input
-					id="input-nome-busca" type="text" class="form-control"
-					th:name="nome" />
-				<button id="botao-localizar" th:type="submit"
-					class="btn btn-secondary">LOCALIZAR</button>
+				<a th:href="@{/clientes/todos/}">
+					<button id="botao-pesquisar" th:type="button"
+						class="btn btn-secondary">PESQUISAR</button>
+				</a>
 			</div>
 		</form>
 	</div>

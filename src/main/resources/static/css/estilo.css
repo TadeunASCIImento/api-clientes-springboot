@@ -5,11 +5,11 @@
 }
 
 header {
-	padding: 20px;
+	margin: 30px 0px 30px 0px;
 }
 
 .table {
-	font-size: 1.1em;
+	font-size: 1.3em;
 	text-align: center;
 }
 
@@ -17,34 +17,44 @@ header {
 	text-align: center;
 }
 
-.divisor {
-	margin: 20px 0px 0px 0px;
-}
-
 .form-group {
 	margin: 10px 0px 10px 10px;
 }
 
-.label-nome, .label-cpf, .label-data {
-	font-size: 1.1em;
-	margin: 5px 10px 0px 0px;
+.form-cadastro {
+	margin: 60px 0px 0px 36%;
 }
 
-.label-formato-data, .label-formato-cpf {
+.label-nome, .label-cpf, .label-data {
+	font-size: 1.3em;
+	margin: 5px 10px 0px 5px;
+}
+
+.label-formato-cpf {
 	color: grey;
-	margin: 3px 0px 0px 0px;
+	margin: 3px 0px 0px 5px;
 }
 
 #input-nome, #input-cpf, #input-data {
-	font-size: 1.1em;
+	font-size: 1.3em;
 	width: 300px;
+	height: 50px;
 	margin: 0px 20px 0px 0px;
 }
 
 #botao-cadastrar {
 	background-color: #028090;
-	width: 155px;
-	margin: 0px 0px 0px 145px;
+	width: 146px;
+	height: 50px;
+	margin: 20px 0px 0px 0px;
+	border: none;
+}
+
+#botao-pesquisar {
+	background-color: #028090;
+	width: 146px;
+	height: 50px;
+	margin: 20px 0px 0px 0px;
 	border: none;
 }
 
@@ -55,37 +65,61 @@ header {
 }
 
 #form-busca {
-	margin: 0px 0px 10px 310px;
+	margin: 0px 0px 10px 0px;
 }
 
 #input-nome-busca {
 	width: 300px;
+	height: 50px;
 	margin: 0px 10px 0px 10px;
 }
 
 #input-cpf-busca {
 	width: 200px;
+	height: 50px;
 	margin: 0px 10px 0px 10px;
 }
 
 #botao-localizar {
 	background-color: #f95738;
 	width: 120px;
-	height: 38px;
+	height: 50px;
 	margin: 0px 0px 0px 0px;
 	border: none;
 }
 
-#titulo-busca {
-	font-style:italic;
-	color:grey;
-	margin: 0px 0px 5px 345px;
+.label-busca-cpf {
+	font-size: 1.3em;
+	font-style: italic;
+	color: grey;
+	margin: 0px 0px 5px 135px;
 }
 
-#container-cliente {
-	margin-top: 100px;
+.label-busca-nome {
+	font-size: 1.3em;
+	font-style: italic;
+	color: grey;
+	margin: 0px 0px 5px 0px;
 }
 
-#tabela-cliente {
-	margin-top: 100px;
+#input-update-nome, #input-update-cpf, #input-update-data {
+	font-size: 1.3em;
+	width: 250px;
+	height: 50px;
+	margin: 20px 20px 0px 0px;
+}
+
+.form-update {
+	margin: 0px 0px 20px 100px;
+}
+
+#botao-salvar {
+	margin: 20px 0px 0px 0px;
+	height: 50px;
+	background-color: #028090;
+	border: none;
+}
+
+#table-cliente {
+	margin: 30px 0px 0px 0px;
 }

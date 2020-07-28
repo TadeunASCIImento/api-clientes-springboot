@@ -6,7 +6,7 @@
 	},
 	"item": [
 		{
-			"name": "Retorna recurso pelo nome completo.",
+			"name": "Retorna recurso pelo numero de CPF",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -29,7 +29,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/clientes/cliente/?cpf=111222333444&nome=Tadeu do Nascimento",
+					"raw": "http://localhost:8080/clientes/?cpf=111222333444",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -37,17 +37,17 @@
 					"port": "8080",
 					"path": [
 						"clientes",
-						"cliente",
 						""
 					],
 					"query": [
 						{
-							"key": "cpf",
-							"value": "111222333444"
+							"key": "",
+							"value": "",
+							"disabled": true
 						},
 						{
-							"key": "nome",
-							"value": "Tadeu do Nascimento"
+							"key": "cpf",
+							"value": "111222333444"
 						}
 					]
 				},
@@ -56,7 +56,7 @@
 			"response": []
 		},
 		{
-			"name": "Retorna o recurso pelo  CPF.",
+			"name": "Retorna o recurso pelo  nome.",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -73,7 +73,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/clientes/cliente/?nome=Tadeu do Nascimento",
+					"raw": "http://localhost:8080/clientes/?nome=Tadeu do Nascimento",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -81,18 +81,17 @@
 					"port": "8080",
 					"path": [
 						"clientes",
-						"cliente",
 						""
 					],
 					"query": [
 						{
+							"key": "nome",
+							"value": "Tadeu do Nascimento"
+						},
+						{
 							"key": "cpf",
 							"value": "111222333444",
 							"disabled": true
-						},
-						{
-							"key": "nome",
-							"value": "Tadeu do Nascimento"
 						}
 					]
 				},
@@ -120,7 +119,7 @@
 						},
 						{
 							"key": "dataNascimento",
-							"value": "1982/09/27",
+							"value": "1982-09-27",
 							"type": "text"
 						}
 					],
@@ -131,7 +130,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/clientes/novo/",
+					"raw": "http://localhost:8080/clientes/",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -139,7 +138,6 @@
 					"port": "8080",
 					"path": [
 						"clientes",
-						"novo",
 						""
 					]
 				},
@@ -153,7 +151,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/clientes/pagina/",
+					"raw": "http://localhost:8080/clientes/pagina/?cpf=32471527841&nome=Tadeu do Nascimento",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -163,6 +161,16 @@
 						"clientes",
 						"pagina",
 						""
+					],
+					"query": [
+						{
+							"key": "cpf",
+							"value": "32471527841"
+						},
+						{
+							"key": "nome",
+							"value": "Tadeu do Nascimento"
+						}
 					]
 				}
 			},
@@ -183,7 +191,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/clientes/delete/2",
+					"raw": "http://localhost:8080/clientes/3",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -191,8 +199,7 @@
 					"port": "8080",
 					"path": [
 						"clientes",
-						"delete",
-						"2"
+						"3"
 					]
 				}
 			},
@@ -205,7 +212,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"id\": 1,\r\n    \"nome\": \"Tadeu do Nascimento\",\r\n    \"cpf\": \"111222333555\",\r\n    \"dataNascimento\": \"1992-09-27\"\r\n}",
+					"raw": "{\r\n    \"id\": 1,\r\n    \"nome\": \"Tadeu do Nascimento\",\r\n    \"cpf\": \"111222333455\",\r\n    \"dataNascimento\": \"1990-09-27\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -213,7 +220,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/clientes/update/",
+					"raw": "http://localhost:8080/clientes/",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -221,7 +228,6 @@
 					"port": "8080",
 					"path": [
 						"clientes",
-						"update",
 						""
 					]
 				}
@@ -235,7 +241,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"id\": 2,\r\n    \"nome\": \"Tadeu do Nascimento\",\r\n    \"cpf\": \"333444555666\",\r\n    \"dataNascimento\": \"1982-09-27\"\r\n}",
+					"raw": "{\r\n    \"id\": 2,\r\n    \"nome\": \"Tadeu do Nascimento\",\r\n    \"cpf\": \"222333444555\",\r\n    \"dataNascimento\": \"2000-09-27\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -243,7 +249,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/clientes/create/",
+					"raw": "http://localhost:8080/clientes/",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -251,7 +257,6 @@
 					"port": "8080",
 					"path": [
 						"clientes",
-						"create",
 						""
 					]
 				}
