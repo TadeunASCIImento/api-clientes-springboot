@@ -23,7 +23,7 @@ public class Util {
 		return null;
 	}
 
-	// Calcula a idade a partir da data de nasciemento
+	// Calcula a idade a partir da data de nascimento
 	public Integer getIdade(String data) {
 		Calendar nascimento = new GregorianCalendar();
 		nascimento.setTime(toDate(data));
