@@ -18,20 +18,23 @@
 <body>
 	<div class="container">
 		<header class="header">
-			<h2 class="titulo">TABELA DE CLIENTES CADASTRADOS</h2>
+			<h2 class="titulo">
+				<b>TABELA DE CLIENTES CADASTRADOS</b>
+			</h2>
 		</header>
-			<a th:href="@{/clientes/cadastro/}"><img id="icone-voltar"
-				src="/icons/voltar.png" /></a>
+		<a th:href="@{/clientes/cadastro/}"><img id="icone-voltar"
+			src="/icons/voltar.png" /></a>
 		<form method="GET" th:action="@{/clientes/localizar/}">
 			<div id="form-busca" class="form-inline">
-		<label class="label-busca-cpf">INFORME O CPF</label>
-			 <input
+				<label class="label-busca-cpf">INFORME O CPF</label> <input
 					id="input-cpf-busca" type="text" class="form-control" th:name="cpf" />
 				<label class="label-busca-nome"> OU NOME </label> <input
 					id="input-nome-busca" type="text" class="form-control"
 					th:name="nome" />
 				<button id="botao-localizar" th:type="submit"
-					class="btn btn-secondary">LOCALIZAR</button>
+					class="btn btn-secondary">
+					<b>LOCALIZAR</b>
+				</button>
 			</div>
 		</form>
 

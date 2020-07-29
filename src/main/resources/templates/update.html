@@ -18,7 +18,9 @@
 <body>
 	<div class="container">
 		<header class="header">
-			<h2 class="titulo">DADOS DO CLIENTE</h2>
+			<h2 class="titulo">
+				<b>DADOS DO CLIENTE</b>
+			</h2>
 		</header>
 		<a th:href="@{/clientes/todos/}"><img id="icone-voltar"
 			src="/icons/voltar.png" /></a>
@@ -33,8 +35,9 @@
 					th:field="*{nome}" th:value="${cliente.nome}" /> <input
 					id="input-update-data" th:type="datetime" class="form-control"
 					th:field="*{dataNascimento}" th:value="${cliente.dataNascimento}" />
-				<button id="botao-salvar" th:type="submit" class="btn btn-secondary">SALVAR
-					ALTERAÇÕES</button>
+				<button id="botao-salvar" th:type="submit" class="btn btn-secondary">
+					<b>SALVAR ALTERAÇÕES</b>
+				</button>
 			</div>
 		</form>
 		<table id="table-cliente" class="table table-hover">
@@ -54,7 +57,7 @@
 					<td th:text="${cliente.cpf}"></td>
 					<td th:text="${cliente.nome}"></td>
 					<td th:text="${cliente.idade}"></td>
-						<td><a th:href="@{/clientes/editar/{id}(id=${cliente.id})}">
+					<td><a th:href="@{/clientes/editar/{id}(id=${cliente.id})}">
 							<img id="icone-operacao" src="/icons/update.png" />
 					</a></td>
 					<td><a th:href="@{/clientes/excluir/{id}(id=${cliente.id})}"><img

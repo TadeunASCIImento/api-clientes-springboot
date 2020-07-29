@@ -14,15 +14,16 @@ header {
 }
 
 .titulo {
+	padding: 10px;
 	text-align: center;
 }
 
 .form-group {
-	margin: 10px 0px 10px 10px;
+	margin: 0px 0px 10px 10px;
 }
 
 .form-cadastro {
-	margin: 60px 0px 0px 36%;
+	margin: 0px 0px 0px 34%;
 }
 
 .label-nome, .label-cpf, .label-data {
@@ -37,24 +38,28 @@ header {
 
 #input-nome, #input-cpf, #input-data {
 	font-size: 1.3em;
-	width: 300px;
+	width: 350px;
 	height: 50px;
 	margin: 0px 20px 0px 0px;
 }
 
+#input-data {
+	text-align: center;
+}
+
 #botao-cadastrar {
 	background-color: #028090;
-	width: 146px;
+	width: 170px;
 	height: 50px;
-	margin: 20px 0px 0px 0px;
+	margin: 30px 0px 20px 0px;
 	border: none;
 }
 
 #botao-pesquisar {
 	background-color: #028090;
-	width: 146px;
+	width: 170px;
 	height: 50px;
-	margin: 20px 0px 0px 0px;
+	margin: 30px 0px 20px 0px;
 	border: none;
 }
 
@@ -82,7 +87,7 @@ header {
 
 #botao-localizar {
 	background-color: #f95738;
-	width: 120px;
+	width: 180px;
 	height: 50px;
 	margin: 0px 0px 0px 0px;
 	border: none;

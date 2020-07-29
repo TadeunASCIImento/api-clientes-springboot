@@ -12,7 +12,9 @@
 <body>
 	<div class="container">
 		<header class="header">
-			<h2 class="titulo">CADASTRO DE CLIENTES</h2>
+			<h2 class="titulo">
+				<b>CADASTRO DE CLIENTES</b>
+			</h2>
 		</header>
 		<form class="form-cadastro" method="POST" th:object="${cliente}"
 			th:action="@{/clientes/cadastrar/}">
@@ -27,10 +29,14 @@
 					id="input-data" th:type="date" class="form-control"
 					th:field="*{dataNascimento}" />
 				<button id="botao-cadastrar" th:type="submit"
-					class="btn btn-secondary">CADASTRAR</button>
+					class="btn btn-secondary">
+					<b>CADASTRAR</b>
+				</button>
 				<a th:href="@{/clientes/todos/}">
 					<button id="botao-pesquisar" th:type="button"
-						class="btn btn-secondary">PESQUISAR</button>
+						class="btn btn-secondary">
+						<b>PESQUISAR</b>
+					</button>
 				</a>
 			</div>
 		</form>
