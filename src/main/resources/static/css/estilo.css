@@ -124,3 +124,22 @@ header {
 #table-cliente {
 	margin: 30px 0px 0px 0px;
 }
+
+.icone-github, .icone-linkedin, .icone-bitbucket {
+	margin: 20px 0px 0px 0px;
+	width: 40px;
+	height: 40px;
+	border-radius: 5px;
+}
+
+.icone-email {
+	margin-top: 20px;
+	width: 45px;
+	height: 45px;
+	width: 45px;
+}
+
+.footer {
+	margin: 40px 0px 0px 0px;
+	text-align: center;
+}
