@@ -43,9 +43,7 @@ header {
 	margin: 0px 20px 0px 0px;
 }
 
-#input-data {
-	text-align: center;
-}
+
 
 #botao-cadastrar {
 	background-color: #028090;
@@ -128,3 +126,4 @@ header {
 #table-cliente {
 	margin: 30px 0px 0px 0px;
 }
+#icone-operacao{width:50px;height: 50px}
