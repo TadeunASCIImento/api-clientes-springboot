@@ -32,7 +32,7 @@ public class ClienteRestController {
 	private ClientesRepository repository;
 
 	// Chama o formulário para cadastro de clientes.
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	@RequestMapping(value = "/cadastro/", method = RequestMethod.GET)
 	public ModelAndView cadastro(Cliente cliente) {
 		return new ModelAndView("cadastro");
 	}

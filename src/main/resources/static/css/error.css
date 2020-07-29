@@ -1,1 +1,74 @@
 @charset "ISO-8859-1";
+
+.container {
+	padding: 150px;
+}
+
+* {
+	font-family: roboto;
+	text-align: center;
+}
+
+.code-erro {
+	color: whitesmoke;
+	font-size: 10em;
+}
+
+.main-body-400 {
+	height: 400px;
+	color: whitesmoke;
+	background-color: #284b63;
+	color: whitesmoke;
+}
+
+.message-erro {
+	font-size: 1.5em;
+	color: whitesmoke;
+}
+
+a {
+	color: whitesmoke;
+}
+
+* {
+	font-family: roboto;
+	text-align: center;
+	color: whitesmoke;
+}
+
+.code-erro {
+	font-size: 10em;
+}
+
+.main-body-500 {
+	height: 400px;
+	text-align: center;
+	background-color: #f94144;
+}
+
+.message-erro {
+	font-size: 1.5em;
+}
+
+* {
+	font-family: roboto;
+	text-align: center;
+	color: whitesmoke;
+}
+
+.code-erro {
+	font-size: 10em;
+}
+
+.main-body-404 {
+	height: 400px;
+	background-color: #1982c4;
+}
+
+.message-erro {
+	font-size: 1.5em;
+}
+
+hr {
+	background-color: whitesmoke;
+}
