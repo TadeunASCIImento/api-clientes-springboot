@@ -5,4 +5,5 @@
 * A API de GET aceita query strings para pesquisa dos clientes por CPF e nome.
 * Os clientes voltam paginados, com um campo por cliente com a idade calculada considerando a data de nascimento.
 * Projeto contém um Postman para apreciação da API.
+* O banco de dados POSTGRESQL está configurado na nuvem do Heroku.
 
