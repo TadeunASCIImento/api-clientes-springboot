@@ -18,7 +18,7 @@ public interface ClientesRepository extends JpaRepository<Cliente, Long> {
 	/*
 	 * Busca o cliente pelo CPF ou nome completo. c.
 	 */
-	@Query("from Cliente  where cpf = :cpf OR nome = :nome")
+	@Query("from Cliente  where cpf = :cpf OR nome like %:nome%")
 	List<Cliente> find(@RequestParam("cpf") String cpf, @RequestParam("nome") String nome);
 
 	@Modifying

@@ -17,7 +17,7 @@
 			</h2>
 		</header>
 		<form class="form-cadastro" method="POST" th:object="${cliente}"
-			th:action="@{/clientes/cadastrar/}">
+			th:action="@{/cadastrar/}">
 			<div class="form-group">
 				<label class="label-nome">NOME COMPLETO</label> <input
 					id="input-nome" th:type="text" class="form-control"
@@ -32,7 +32,7 @@
 					class="btn btn-secondary">
 					<b>CADASTRAR</b>
 				</button>
-				<a th:href="@{/clientes/todos/}">
+				<a th:href="@{/todos/}">
 					<button id="botao-pesquisar" th:type="button"
 						class="btn btn-secondary">
 						<b>PESQUISAR</b>

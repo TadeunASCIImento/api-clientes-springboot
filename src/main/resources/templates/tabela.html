@@ -22,9 +22,9 @@
 				<b>TABELA DE CLIENTES CADASTRADOS</b>
 			</h2>
 		</header>
-		<a th:href="@{/clientes/cadastro/}"><img id="icone-voltar"
+		<a th:href="@{/}"><img id="icone-voltar"
 			src="/icons/voltar.png" /></a>
-		<form method="GET" th:action="@{/clientes/localizar/}">
+		<form method="GET" th:action="@{/localizar/}">
 			<div id="form-busca" class="form-inline">
 				<label class="label-busca-cpf">INFORME O CPF</label> <input
 					id="input-cpf-busca" type="text" class="form-control" th:name="cpf" />
@@ -55,10 +55,10 @@
 					<td th:text="${cliente.cpf}"></td>
 					<td th:text="${cliente.nome}"></td>
 					<td th:text="${cliente.idade}"></td>
-					<td><a th:href="@{/clientes/editar/{id}(id=${cliente.id})}">
+					<td><a th:href="@{/editar/{id}(id=${cliente.id})}">
 							<img id="icone-operacao" src="/icons/update.png" />
 					</a></td>
-					<td><a th:href="@{/clientes/excluir/{id}(id=${cliente.id})}"><img
+					<td><a th:href="@{/excluir/{id}(id=${cliente.id})}"><img
 							id="icone-operacao" src="/icons/trash.png" /></a></td>
 				</tr>
 			</tbody>
