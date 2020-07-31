@@ -3,10 +3,14 @@ package br.com.application.controllers;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.transaction.Transactional;
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,12 +18,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.application.models.Cliente;
 import br.com.application.repositories.ClientesRepository;
 import br.com.application.util.Util;
 
 @RestController
+@Transactional
 public class ClienteRestController {
 
 	@Autowired
@@ -35,7 +41,9 @@ public class ClienteRestController {
 	// cliente cadastrado com um campo com a idade calculada a partir da data de
 	// nascimento.
 	@RequestMapping(value = "/cadastrar/", method = RequestMethod.POST)
-	public ModelAndView salvar(Cliente cliente) {
+	public ModelAndView salvar(@Valid Cliente cliente, BindingResult result, RedirectAttributes redirect) {
+		if (result.hasErrors())
+			return new ModelAndView("cadastro", "/", result.getAllErrors());
 		add(cliente);
 		cliente.setIdade(new Util().getIdade(cliente.getDataNascimento()));
 		return new ModelAndView("redirect:/todos/");

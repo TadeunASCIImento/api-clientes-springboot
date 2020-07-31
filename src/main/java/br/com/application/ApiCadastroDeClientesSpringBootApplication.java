@@ -18,6 +18,8 @@ public class ApiCadastroDeClientesSpringBootApplication extends SpringBootServle
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
 		return builder.sources(ApiCadastroDeClientesSpringBootApplication.class);
 	}
+	
+	
 
 	@Bean
 	public RestTemplate restTemplate() {

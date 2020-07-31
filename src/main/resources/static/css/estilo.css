@@ -143,3 +143,10 @@ header {
 	margin: 40px 0px 0px 0px;
 	text-align: center;
 }
+
+.p-validacao {
+	color: #ff6b6b;
+	margin: 2px 0px 0px 2px;
+	font-size: 1.2em;
+	font-family: monospace;
+}

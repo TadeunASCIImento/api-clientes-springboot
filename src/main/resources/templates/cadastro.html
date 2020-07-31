@@ -18,16 +18,25 @@
 		</header>
 		<form class="form-cadastro" method="POST" th:object="${cliente}"
 			th:action="@{/cadastrar/}">
+			<!--  -->
 			<div class="form-group">
 				<label class="label-nome">NOME COMPLETO</label> <input
 					id="input-nome" th:type="text" class="form-control"
-					th:field="*{nome}" /> <label class="label-cpf">CPF </label><input
-					id="input-cpf" th:type="text" class="form-control"
-					th:field="*{cpf}" />
+					th:field="*{nome}" />
+				<p class="p-validacao"th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></p>
+				<!--  -->
+				<label class="label-cpf">CPF </label>
 				<p class="label-formato-cpf">OBS:apenas numeros</p>
+				<input id="input-cpf"
+					th:type="text" class="form-control" th:field="*{cpf}" />
+				<p class="p-validacao" th:if="${#fields.hasErrors('cpf')}" th:errors="*{cpf}"></p>
+				<!--  -->
 				<label class="label-data">DATA DE NASCIMENTO</label><input
 					id="input-data" th:type="date" class="form-control"
 					th:field="*{dataNascimento}" />
+				<p  class="p-validacao"th:if="${#fields.hasErrors('dataNascimento')}"
+					th:errors="*{dataNascimento}"></p>
+				<!--  -->
 				<button id="botao-cadastrar" th:type="submit"
 					class="btn btn-secondary">
 					<b>CADASTRAR</b>

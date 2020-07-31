@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Transient;
 
+import org.hibernate.validator.constraints.Length;
 import org.springframework.lang.Nullable;
 
 import lombok.AllArgsConstructor;
@@ -30,11 +31,16 @@ public class Cliente implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
+	@Length(min = 3, message = "Deve ser maior ou igual á {min} caracteres")
+	@javax.validation.constraints.NotBlank(message = "Campo nome não pode estar em branco")
 	private String nome;
 
 	@Column(unique = true)
+	@javax.validation.constraints.NotBlank
+	@Length(min = 11, max = 11, message = "Campo CPF deve conter {min} caracteres")
 	private String cpf;
 
+	@javax.validation.constraints.NotBlank
 	private String dataNascimento;
 
 	@Nullable
