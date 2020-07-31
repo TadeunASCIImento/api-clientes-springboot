@@ -32,7 +32,7 @@ public class Cliente implements Serializable {
 	private Long id;
 
 	@Length(min = 3, message = "Deve ser maior ou igual á {min} caracteres")
-	@javax.validation.constraints.NotBlank(message = "Campo nome não pode estar em branco")
+	@javax.validation.constraints.NotBlank
 	private String nome;
 
 	@Column(unique = true)
