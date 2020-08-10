@@ -31,8 +31,8 @@ public class Cliente implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
-	@Length(min = 3, message = "Deve ser maior ou igual á {min} caracteres")
 	@javax.validation.constraints.NotBlank
+	@Length(min = 3, message = "Deve ser maior ou igual á {min} caracteres")
 	private String nome;
 
 	@Column(unique = true)
