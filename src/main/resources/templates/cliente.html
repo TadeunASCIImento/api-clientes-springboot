@@ -21,7 +21,7 @@
 			<h2 class="titulo"><b>DADOS DO CLIENTE</b></h2>
 		</header>
 		<a th:href="@{/todos/}"><img id="icone-voltar"
-			src="/icons/voltar.png" /></a>
+			src="/icones/voltar.png" /></a>
 
 		<table id="table-cliente" class="table table-hover">
 			<thead>
@@ -41,10 +41,10 @@
 					<td th:text="${cliente.nome}"></td>
 					<td th:text="${cliente.idade}"></td>
 					<td><a th:href="@{/editar/{id}(id=${cliente.id})}">
-							<img id="icone-operacao" src="/icons/update.png" />
+							<img id="icone-operacao" src="/icones/update.png" />
 					</a></td>
 					<td><a th:href="@{/excluir/{id}(id=${cliente.id})}"><img
-							id="icone-operacao" src="/icons/trash.png" /></a></td>
+							id="icone-operacao" src="/icones/trash.png" /></a></td>
 				</tr>
 			</tbody>
 		</table>
